@@ -107,7 +107,6 @@ namespace AuthBackend.Services
         public async Task<TeamDto?> GetTeamByIdAsync(int id)
         {
             var team = await _context.Teams
-                .Include(t => t.TeamChallenges)
                 .FirstOrDefaultAsync(t => t.Id == id);
 
             if (team == null) return null;
@@ -120,8 +119,28 @@ namespace AuthBackend.Services
                 CreatedAt = team.CreatedAt,
                 LastLoginAt = team.LastLoginAt,
                 IsActive = team.IsActive,
-                TotalPoints = team.TeamChallenges.Sum(tc => tc.TotalPoints),
-                ChallengesCompleted = team.TeamChallenges.Count(tc => tc.BuildathonCompleted)
+                TotalPoints = 0, // Set to 0 for now
+                ChallengesCompleted = 0 // Set to 0 for now
+            };
+        }
+
+        public async Task<TeamDto?> GetTeamByEmailAsync(string email)
+        {
+            var team = await _context.Teams
+                .FirstOrDefaultAsync(t => t.Email == email);
+
+            if (team == null) return null;
+
+            return new TeamDto
+            {
+                Id = team.Id,
+                Name = team.Name,
+                Email = team.Email,
+                CreatedAt = team.CreatedAt,
+                LastLoginAt = team.LastLoginAt,
+                IsActive = team.IsActive,
+                TotalPoints = 0, // Set to 0 for now
+                ChallengesCompleted = 0 // Set to 0 for now
             };
         }
 

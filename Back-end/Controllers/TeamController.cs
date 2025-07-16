@@ -35,6 +35,21 @@ namespace AuthBackend.Controllers
             return BadRequest(new { message = result.Message });
         }
 
+        [HttpGet("admin/all")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> GetAllTeams()
+        {
+            try
+            {
+                var teams = await _teamService.GetAllTeamsAsync();
+                return Ok(new { message = "Teams retrieved successfully", teams = teams });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "An error occurred while retrieving teams", error = ex.Message });
+            }
+        }
+
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] TeamLoginDto login)
         {
@@ -47,10 +62,34 @@ namespace AuthBackend.Controllers
             
             if (result.Success)
             {
-                return Ok(new { message = result.Message, token = result.Token });
+                // Get team data for the response
+                var team = await _teamService.GetTeamByEmailAsync(login.Email);
+                return Ok(new { 
+                    message = result.Message, 
+                    token = result.Token,
+                    team = team
+                });
             }
 
             return BadRequest(new { message = result.Message });
+        }
+
+        [HttpPost("logout")]
+        [Authorize(Roles = "Team")]
+        public IActionResult Logout()
+        {
+            // Extract the JWT token from the Authorization header
+            var authHeader = Request.Headers["Authorization"].FirstOrDefault();
+            if (string.IsNullOrEmpty(authHeader) || !authHeader.StartsWith("Bearer "))
+            {
+                return BadRequest(new { message = "No token provided" });
+            }
+
+            var token = authHeader.Substring("Bearer ".Length).Trim();
+
+            // You might want to add token blacklisting logic here if needed
+            // For now, just return success
+            return Ok(new { message = "Logout successful" });
         }
 
         [HttpGet("profile")]

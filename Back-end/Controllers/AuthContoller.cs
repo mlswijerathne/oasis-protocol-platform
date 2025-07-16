@@ -214,5 +214,116 @@ namespace AuthBackend.Controllers
                 }
             });
         }
+
+        [HttpPost("admin/login")]
+        public async Task<IActionResult> AdminLogin([FromBody] AdminLoginModel model)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                // For admin login, we expect username to be the admin email
+                var loginModel = new LoginModel
+                {
+                    Email = model.Username == "admin" ? "admin@oasis.com" : model.Username,
+                    Password = model.Password
+                };
+
+                var result = await _authService.LoginAsync(loginModel);
+
+                if (result == "Invalid credentials")
+                {
+                    return Unauthorized(new { message = "Invalid admin credentials" });
+                }
+
+                // Get user details and verify admin role
+                var user = await _authService.GetUserByEmailAsync(loginModel.Email);
+                
+                if (user?.Role != "Admin")
+                {
+                    return Unauthorized(new { message = "Access denied. Admin privileges required." });
+                }
+
+                return Ok(new
+                {
+                    message = "Admin login successful",
+                    token = result,
+                    admin = new
+                    {
+                        email = user.Email,
+                        firstName = user.FirstName,
+                        lastName = user.LastName,
+                        role = user.Role
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "An error occurred during admin login", error = ex.Message });
+            }
+        }
+
+        [HttpPost("admin/logout")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> AdminLogout()
+        {
+            // Extract the JWT token from the Authorization header
+            var authHeader = Request.Headers["Authorization"].FirstOrDefault();
+            if (string.IsNullOrEmpty(authHeader) || !authHeader.StartsWith("Bearer "))
+            {
+                return BadRequest(new { message = "No token provided" });
+            }
+
+            var token = authHeader.Substring("Bearer ".Length).Trim();
+
+            // Blacklist the token using the auth service
+            var result = await _authService.BlacklistTokenAsync(token);
+
+            if (!result)
+            {
+                return StatusCode(500, new { message = "Failed to blacklist token" });
+            }
+
+            return Ok(new { message = "Admin logout successful" });
+        }
+
+        [HttpGet("admin/profile")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> GetAdminProfile()
+        {
+            try
+            {
+                var userEmail = User.FindFirst(ClaimTypes.Email)?.Value;
+                
+                if (string.IsNullOrEmpty(userEmail))
+                {
+                    return Unauthorized(new { message = "Invalid token" });
+                }
+
+                var user = await _authService.GetUserByEmailAsync(userEmail);
+                
+                if (user == null || user.Role != "Admin")
+                {
+                    return Unauthorized(new { message = "Admin access required" });
+                }
+
+                return Ok(new
+                {
+                    id = user.Id,
+                    email = user.Email,
+                    firstName = user.FirstName,
+                    lastName = user.LastName,
+                    userName = user.UserName,
+                    role = user.Role
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "An error occurred while retrieving admin profile", error = ex.Message });
+            }
+        }
     }
 }

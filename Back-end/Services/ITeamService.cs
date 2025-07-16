@@ -9,6 +9,7 @@ namespace AuthBackend.Services
         Task<(bool Success, string Message, string? Token)> LoginTeamAsync(TeamLoginDto login);
         Task<List<TeamDto>> GetAllTeamsAsync();
         Task<TeamDto?> GetTeamByIdAsync(int id);
+        Task<TeamDto?> GetTeamByEmailAsync(string email);
         Task<List<SubmissionDto>> GetTeamSubmissionsAsync(int teamId);
         Task<bool> UpdateTeamActivityAsync(int teamId);
         Task<TeamProgressDto?> GetTeamProgressAsync(int teamId);
