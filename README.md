@@ -241,70 +241,21 @@ The frontend will start running on `http://localhost:3000`.
 - Environment-based configurations
 - Secrets management
 
-## 🌐 API Endpoints
+## Team Members
 
-### Authentication Endpoints
-- POST `/api/auth/register` - User registration
-- POST `/api/auth/login` - User login
-- POST `/api/auth/refresh` - Refresh token
-- POST `/api/auth/verify-email` - Email verification
+<div align="left">
 
-### User Management Endpoints
-- GET `/api/users` - Get all users
-- GET `/api/users/{id}` - Get user by ID
-- PUT `/api/users/{id}` - Update user
-- DELETE `/api/users/{id}` - Delete user
-- GET `/api/users/profile` - Get current user profile
+| <img src="https://github.com/mlswijerathne.png" width="50px" height="50px"/> | <img src="https://avatars.githubusercontent.com/u/139224455?v=4" width="50px" height="50px"/> |
+|:-------------------------:|:-------------------------:|
+| **Lakshitha Wijerathne** | **Jayani Adikari** |
+| [@mlswijerathne](https://github.com/mlswijerathne) | [@JMAdikari](https://github.com/JMAdikari) |
 
-### Challenge Endpoints
-- GET `/api/challenges` - List all challenges
-- GET `/api/challenges/{id}` - Get challenge details
-- POST `/api/challenges` - Create new challenge
-- PUT `/api/challenges/{id}` - Update challenge
-- DELETE `/api/challenges/{id}` - Delete challenge
-- GET `/api/challenges/{id}/submissions` - Get challenge submissions
-
-### Team Management Endpoints
-- POST `/api/teams` - Create team
-- GET `/api/teams` - List teams
-- GET `/api/teams/{id}` - Get team details
-- PUT `/api/teams/{id}` - Update team
-- DELETE `/api/teams/{id}` - Delete team
-- POST `/api/teams/{id}/members` - Add team member
-- DELETE `/api/teams/{id}/members/{userId}` - Remove team member
-
-### Submission Endpoints
-- POST `/api/submissions` - Submit solution
-- GET `/api/submissions/{id}` - Get submission details
-- GET `/api/submissions/user/{userId}` - Get user submissions
-- GET `/api/submissions/team/{teamId}` - Get team submissions
-
-### Leaderboard Endpoints
-- GET `/api/leaderboard` - Get global leaderboard
-- GET `/api/leaderboard/teams` - Get team leaderboard
-- GET `/api/leaderboard/users` - Get individual leaderboard
-- GET `/api/leaderboard/challenge/{challengeId}` - Get challenge-specific leaderboard
-
-### Flag Endpoints
-- POST `/api/flags/submit` - Submit flag
-- GET `/api/flags/status` - Get flag submission status
-- GET `/api/flags/challenge/{challengeId}` - Get challenge flags
-
-## 👥 Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
+</div>
 
 ## 🤝 Contact
 
-JMAdikari - [GitHub Profile](https://github.com/JMAdikari)
 Lakshitha Wijerathne - [GitHub Profile](https://github.com/mlswijerathne)
 
-Project Link: [https://github.com/JMAdikari/oasis-protocol-platform](https://github.com/JMAdikari/oasis-protocol-platform)
+Jayani Adikari - [GitHub Profile](https://github.com/JMAdikari)
+
+
