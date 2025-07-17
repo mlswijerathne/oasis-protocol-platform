@@ -86,31 +86,41 @@ Oasis Protocol Platform is designed to facilitate:
 - Achievement unlocking
 - Anti-cheating measures
 
-##🖼️ User Interfaces
-Admin Login
+## 🖼️ User Interfaces
 
-<p align="center"> <img src="assets/Admin login.png" alt="Admin Login" width="600" height="400"/> </p>
-Challenge Management
-
-<p align="center"> <img src="assets/Challenege Management.png" alt="Challenge Management" width="600" height="400"/> </p>
 Home
 
-<p align="center"> <img src="assets/Home.png" alt="Home" width="600" height="400"/> </p>
+<p align="center"> <img src="Assests/Home.png" alt="Home" width="600" height="400"/> </p>
+
 Leaderboard
 
-<p align="center"> <img src="assets/Leaderboard.png" alt="Leaderboard" width="600" height="400"/> </p>
-Team Management
+<p align="center"> <img src="Assests/Leaderboard.png" alt="Leaderboard" width="600" height="400"/> </p>
 
-<p align="center"> <img src="assets/Team Management.png" alt="Team Management" width="600" height="400"/> </p>
 Team Register
 
-<p align="center"> <img src="assets/Team Register.png" alt="Team Register" width="600" height="400"/> </p>
+<p align="center"> <img src="Assests/Team Register.png" alt="Team Register" width="600" height="400"/> </p>
+
 Team Login
 
-<p align="center"> <img src="assets/Team login.png" alt="Team Login" width="600" height="400"/> </p>
+<p align="center"> <img src="Assests/Team login.png" alt="Team Login" width="600" height="400"/> </p>
+
 Challenges
 
-<p align="center"> <img src="assets/challenges.png" alt="Challenges" width="600" height="400"/> </p>
+<p align="center"> <img src="Assests/challenges.png" alt="Challenges" width="600" height="400"/> </p>
+
+Admin Login
+
+<p align="center"> <img src="Assests/Admin login.png" alt="Admin Login" width="600" height="400"/> </p>
+
+Challenge Management
+
+<p align="center"> <img src="Assests/Challenege Management.png" alt="Challenge Management" width="600" height="400"/> </p>
+
+Team Management
+
+<p align="center"> <img src="Assests/Team Management.png" alt="Team Management" width="600" height="400"/> </p>
+
+
 
 ## 🛠️ Technology Stack
 
