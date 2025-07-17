@@ -305,5 +305,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## 🤝 Contact
 
 JMAdikari - [GitHub Profile](https://github.com/JMAdikari)
+Lakshitha Wijerathne - [GitHub Profile](https://github.com/mlswijerathne)
 
 Project Link: [https://github.com/JMAdikari/oasis-protocol-platform](https://github.com/JMAdikari/oasis-protocol-platform)
