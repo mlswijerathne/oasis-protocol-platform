@@ -86,6 +86,32 @@ Oasis Protocol Platform is designed to facilitate:
 - Achievement unlocking
 - Anti-cheating measures
 
+##🖼️ User Interfaces
+Admin Login
+
+<p align="center"> <img src="assets/Admin login.png" alt="Admin Login" width="600" height="400"/> </p>
+Challenge Management
+
+<p align="center"> <img src="assets/Challenege Management.png" alt="Challenge Management" width="600" height="400"/> </p>
+Home
+
+<p align="center"> <img src="assets/Home.png" alt="Home" width="600" height="400"/> </p>
+Leaderboard
+
+<p align="center"> <img src="assets/Leaderboard.png" alt="Leaderboard" width="600" height="400"/> </p>
+Team Management
+
+<p align="center"> <img src="assets/Team Management.png" alt="Team Management" width="600" height="400"/> </p>
+Team Register
+
+<p align="center"> <img src="assets/Team Register.png" alt="Team Register" width="600" height="400"/> </p>
+Team Login
+
+<p align="center"> <img src="assets/Team login.png" alt="Team Login" width="600" height="400"/> </p>
+Challenges
+
+<p align="center"> <img src="assets/challenges.png" alt="Challenges" width="600" height="400"/> </p>
+
 ## 🛠️ Technology Stack
 
 ### Backend (.NET 8.0)
@@ -124,122 +150,6 @@ Oasis Protocol Platform is designed to facilitate:
         └── services/     # API services
 ```
 
-## 🚦 Getting Started
-
-### Prerequisites
-- .NET 8.0 SDK
-- Node.js (Latest LTS version)
-- SQL Server
-- Visual Studio / VS Code
-
-### Backend Setup
-1. Clone the repository:
-   ```powershell
-   git clone https://github.com/JMAdikari/oasis-protocol-platform.git
-   cd oasis-protocol-platform/Back-end
-   ```
-
-2. Update the connection string in `appsettings.json`:
-   ```json
-   {
-     "ConnectionStrings": {
-       "DefaultConnection": "Server=YOUR_SERVER;Database=OasisDB;Trusted_Connection=True;MultipleActiveResultSets=true"
-     }
-   }
-   ```
-
-3. Install .NET dependencies:
-   ```powershell
-   dotnet restore
-   ```
-
-4. Run database migrations:
-   ```powershell
-   dotnet ef database update
-   ```
-
-5. Initialize the database with sample data (optional):
-   ```powershell
-   dotnet run /seed
-   ```
-
-6. Start the backend:
-   ```powershell
-   dotnet run
-   ```
-
-The backend will start running on `https://localhost:7123` by default.
-
-### Frontend Setup
-1. Navigate to the Front-end directory:
-   ```powershell
-   cd ../Front-end
-   ```
-
-2. Create a `.env` file in the root directory:
-   ```env
-   REACT_APP_API_URL=https://localhost:7123/api
-   REACT_APP_ENV=development
-   ```
-
-3. Install dependencies:
-   ```powershell
-   npm install
-   ```
-
-4. Run the development server:
-   ```powershell
-   npm start
-   ```
-
-The frontend will start running on `http://localhost:3000`.
-
-### Build for Production
-1. Build the frontend:
-   ```powershell
-   npm run build
-   ```
-
-2. Build the backend:
-   ```powershell
-   cd ../Back-end
-   dotnet publish -c Release
-   ```
-
-## 🔐 Security Features
-
-### Authentication & Authorization
-- JWT-based authentication with refresh tokens
-- Password hashing with BCrypt (cost factor 12)
-- Role-based access control (RBAC)
-- Email verification requirement
-- Password complexity requirements
-- Account lockout after failed attempts
-
-### API Security
-- HTTPS enforcement
-- CORS policy configuration
-- Rate limiting
-- Request size limiting
-- Input validation and sanitization
-- SQL injection prevention
-- XSS protection
-
-### Data Protection
-- Encrypted data transmission
-- Secure password storage
-- Session management
-- Audit logging
-- Data backup and recovery
-- GDPR compliance measures
-
-### Infrastructure Security
-- Regular security updates
-- Firewall configuration
-- DDoS protection
-- Secure file upload handling
-- Environment-based configurations
-- Secrets management
 
 ## Team Members
 
